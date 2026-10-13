@@ -22,3 +22,31 @@ botaoMenuEl.addEventListener('click', (e) => {//espera o evento de click no #men
     console.log(expandido);
 });
 
+
+let playlists = [
+    {
+        nome: "sgfsgs",
+        musicas: []
+    },
+    {
+        nome: "'-'",
+        musicas: []
+    }
+];
+
+function addMusicasNoHtml (obj) {
+    let playlists = document.querySelector('#playlists');
+    playlists.innerHTML =  '';
+    let musicas = document.createElement('div');
+    musicas.innerHTML = `
+    <img src="https://www.kindpng.com/picc/m/26-260950_vector-royalty-free-download-cd-drawing-aesthetic-png.png" alt="">
+        <div>
+            <h1>${obj.nome}</h1>
+            <h2>musica</h2>
+        </div>`
+    musicas.classList.add('musiquinha');
+    playlists.appendChild(musicas);
+    
+}
+
+playlists.forEach(addMusicasNoHtml);

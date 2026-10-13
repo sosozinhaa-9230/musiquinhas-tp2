@@ -11,7 +11,7 @@ body {
         grid-row: 1 / 2;
         display: flex;
         position: sticky;
-        background-color: #8a185a;
+        background-color: #8a185e;
         #barra-pesquisa{
             color: rgb(255, 255, 255);
             border-style: solid;
@@ -47,8 +47,8 @@ body {
         #inicio {
             height: 15px;
             position: absolute;
-            top: 4px;
-            left: 40px;
+            top: 3px;
+            left: 35px;
             font-size: 2rem;
             color: #ffaedd;
             text-decoration: none;
@@ -56,7 +56,7 @@ body {
         #menu {
             height: 15px;
             /* margin-top: 4px;
-            margin-left: 10px; */
+            margin-left: 10px;*/
             position: absolute;
             top: 16px;
             left: 10px;
@@ -81,6 +81,8 @@ body {
             display: flex;
             margin-top: 66px;
             padding-left: 10px;
+            flex-direction: column;
+            gap: 10px;
             .musiquinha{
                 display: flex;
                 background-color: #cc4694;
@@ -97,7 +99,7 @@ body {
                     margin: 0 10px;
                 }
                 img{
-                    /*lembrar de arrastar um pouquinhooo para a direita*/
+                    /* lembrar de arrastar um pouquinhooo para a direita */
                     width: 35px;
                     height: 35px;
                     border-radius: 50%;
@@ -110,6 +112,8 @@ body {
         position: absolute;
     }
 }
+
+
 
 .pt-sans-narrow {
   font-family: "PT Sans Narrow", sans-serif;
