@@ -22,3 +22,4 @@ botaoMenuEl.addEventListener('click', (e) => {//espera o evento de click no #men
     console.log(expandido);
 });
 
+let playlists = []
