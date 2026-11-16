@@ -1,25 +1,71 @@
 let botaoMenuEl = document.querySelector('#menu');//aq eu crio variaveis e definos elas como um elemento do html 
 let bodyEl = document.querySelector('body');
-
+let configEl = document.querySelector('#config');
 let expandido = true;//crio/defino uma varial como verdadeira
 
-botaoMenuEl.addEventListener('click', (e) => {//espera o evento de click no #menu
-    let nomeMusicaEl = document.querySelectorAll('.musiquinha h2');//pega o h2 das playlists salvas e coloca em uma lista
-    if (expandido === true) {//se ja estiver expandido...
-        bodyEl.style.gridTemplateColumns = '5vw auto';
-        nomeMusicaEl.forEach(el => {//pega a lista e executa os comandos abaixo p tds os h2s dessa lista
-            el.style.display = 'none';//"esconde" os elementos h2
-            if(el.previousElementSibling) el.previousElementSibling.style.display = 'none';//esconde o elemento anterior do h2(h1)
-        });
+const tema = localStorage.getItem('tema');
+if (tema === 'dark') {
+    bodyEl.classList.add('dark-mode');
+}
+
+configEl.addEventListener('click', () => {
+	bodyEl.classList.toggle('dark-mode')
+	const boolDark = bodyEl.classList.contains('dark-mode');
+	localStorage.setItem('tema', boolDark ? 'dark' : 'light');
+});
+
+// Lógica de Login simples
+let botaoLoginEl = document.querySelector('#login');
+let janelaLoginEl = document.querySelector('#janela-login');
+let usuarioLogadoEl = document.querySelector('#usuario-logado');
+let botaoSairEl = document.querySelector('#sair');
+let entrarEl = document.querySelector('#entrar');
+let fecharEl = document.querySelector('#fechar');
+let usuarioInputEl = document.querySelector('#usuario');
+let senhaInputEl = document.querySelector('#senha');
+
+function atualizarLogin() {
+    let usuarioSalvo = localStorage.getItem('usuarioLogado');
+    if (usuarioSalvo) {
+        botaoLoginEl.style.display = 'none';
+        usuarioLogadoEl.style.display = 'inline';
+        usuarioLogadoEl.textContent = 'Olá, ' + usuarioSalvo;
+        botaoSairEl.style.display = 'inline';
     } else {
-        bodyEl.style.gridTemplateColumns = '15vw auto';
-        nomeMusicaEl.forEach(el => {
-            el.style.display = 'block';//abre h2
-            if(el.previousElementSibling) el.previousElementSibling.style.display = 'block';//abre anterior do h2(h1)
-        });
+        botaoLoginEl.style.display = 'inline';
+        usuarioLogadoEl.style.display = 'none';
+        botaoSairEl.style.display = 'none';
     }
-    expandido = !expandido;//inverte o valor de expandido
-    console.log(expandido);
+}
+
+botaoLoginEl.addEventListener('click', () => {
+    janelaLoginEl.style.display = 'flex';
+});
+
+fecharEl.addEventListener('click', () => {
+    janelaLoginEl.style.display = 'none';
+});
+
+entrarEl.addEventListener('click', () => {
+    let nome = usuarioInputEl.value.trim();
+    if (nome !== '') {
+        localStorage.setItem('usuarioLogado', nome);
+        janelaLoginEl.style.display = 'none';
+        usuarioInputEl.value = '';
+        senhaInputEl.value = '';
+        atualizarLogin();
+    }
+});
+
+botaoSairEl.addEventListener('click', () => {
+    localStorage.removeItem('usuarioLogado');
+    atualizarLogin();
+});
+
+atualizarLogin();
+
+botaoMenuEl.addEventListener('click', () => {
+    bodyEl.classList.toggle('menu-aberto');
 });
 
 
