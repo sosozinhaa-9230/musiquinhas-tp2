@@ -12,16 +12,20 @@
 </head>
 <body>
     <header>
-        <input type="search" name="" id="barra-pesquisa" placeholder="Digite uma música/cantor e aperte Enter...">
+        <button type="button" id="menu">☰</button>
+        <input type="search" name="" id="barra-pesquisa" placeholder="Buscar...">
         <div>
-            <button type="button">⚙</button>
-            <button type="button">Fazer Login</button>
+            <button type="button" id="config">⚙</button>
+            <button type="button" id="login">Fazer Login</button>
+            <span id="usuario-logado" style="display: none;"></span>
+            <button type="button" id="sair" style="display: none;">Sair</button>
         </div>
     </header>
     <aside>
-        <button type="button" id="menu">☰</button>
-        <a href="index.html" id="inicio">⌂</a>
-        <button type="button" id="mais">＋</button>
+        <div id="topo-aside">
+            <a href="index.html" id="inicio">⌂ Início</a>
+            <button type="button" id="mais">＋</button>
+        </div>
         <div id="playlists" class="pt-sans-narrow">
             <div class="musiquinha">
                 <img src="https://www.kindpng.com/picc/m/26-260950_vector-royalty-free-download-cd-drawing-aesthetic-png.png" alt="">
@@ -49,5 +53,12 @@
             <button>⏭</button>
         </div>
     </footer>
+    <div id="janela-login">
+        <h2>Login</h2>
+        <input type="text" id="usuario" placeholder="Nome">
+        <input type="password" id="senha" placeholder="Senha">
+        <button type="button" id="entrar">Entrar</button>
+        <button type="button" id="fechar">Fechar</button>
+    </div>
 </body>
 </html>
