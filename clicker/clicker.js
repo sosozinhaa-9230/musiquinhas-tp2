@@ -14,7 +14,6 @@ configEl.addEventListener('click', () => {
 	localStorage.setItem('tema', boolDark ? 'dark' : 'light');
 });
 
-// Lógica de Login simples
 let botaoLoginEl = document.querySelector('#login');
 let janelaLoginEl = document.querySelector('#janela-login');
 let usuarioLogadoEl = document.querySelector('#usuario-logado');
