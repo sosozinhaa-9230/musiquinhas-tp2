@@ -247,7 +247,6 @@ audioPlayer.addEventListener('ended', () => {
     proximaMusica();
 });
 
-// Pesquisa real ao apertar Enter
 let barraPesquisa = document.querySelector('#barra-pesquisa');
 
 barraPesquisa.addEventListener('keydown', (e) => {
